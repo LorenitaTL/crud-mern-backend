@@ -16,6 +16,10 @@ app.use(express.json());
 //Node server
 const server = require("http").createServer(app);
 
+// Path público
+const publicPath = path.resolve(__dirname, "public");
+app.use(express.static(publicPath));
+
 app.use("/api/books", require("./routes/books"));
 
 server.listen(process.env.PORT, (err) => {
